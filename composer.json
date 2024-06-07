@@ -1,0 +1,23 @@
+{
+    "name": "pdga/coding-standards",
+    "description": "Coding standard rulesets to be used to assist in styling code at the PDGA.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Pdga\\CodingStandards\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hans Anderson",
+            "email": "handerson@pdga.com"
+        },
+        {
+            "name": "Tim Allen",
+            "email": "tallen@pdga.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
