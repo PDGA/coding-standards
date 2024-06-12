@@ -61,3 +61,16 @@ This should override the settings for that one workspace, turning off the file.
 ```json
     "phpsab.standard": "<full path to repo>/coding-standards/src/<different ruleset>.xml",
 ```
+
+## PhpStorm PHP_CodeSniffer Setup
+
+PhpStorm has native support for configuring PHP_CodeSniffer as a Quality Tool per project.
+
+Follow the setup instructions here: [PhpStorm Setup](https://www.jetbrains.com/help/phpstorm/using-php-code-sniffer.html#installing-configuring-code-sniffer)
+
+### Configuring for a project that runs on a Docker image
+The setup instructions will use a local PHP interpreter and local file paths for the CodeSniffer configuration. 
+When setting this up for a project that runs within a Docker image, there are some things to be aware of. 
+Since `Composer` commands should run on the image instead of locally, you will need everything configured from the perspective of the image.
+- Use the interpreter from the Docker image. (eg Use the `pdga-api-php` interpreter instead of `System PHP`)
+- Use the file paths from the Docker image (eg Use soemthing like `/var/www/html/vendor/squizlabs/php_codesniffer/bin/phpcs` for the PHP_CodeSniffer path).
