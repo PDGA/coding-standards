@@ -43,3 +43,21 @@ To enable debugging, add to settings.json:
 
 Then open `Terminal -> New Terminal` in vscode, after it opens click 'OUTPUT' and from the dropdown, choose
 `PHP Sniffer & Beautifier`.
+
+### Per Repo or VSC workspace specific configuration
+
+Open the `.code-workspace` file for that workspace and add:
+
+#### Disable
+
+```json
+    "phpsab.snifferEnable": false,
+```
+
+This should override the settings for that one workspace, turning off the file.
+
+#### Rules
+
+```json
+    "phpsab.standard": "<full path to repo>/coding-standards/src/<different ruleset>.xml",
+```
