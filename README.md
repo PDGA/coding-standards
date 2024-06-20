@@ -1,11 +1,5 @@
 The `src/ruleset.xml` file in this directory is the rule set for PDGA coding standards.
 
-## General Setup
-
-`git clone https://github.com/PDGA/coding-standards.git`
-
-`cd coding-standards && composer install`
-
 ## Adding to a repository
 
 * Edit composer.json, add these sections:
@@ -43,7 +37,13 @@ The `src/ruleset.xml` file in this directory is the rule set for PDGA coding sta
 Once you have the repository's `composer.json` file set up and have run `composer install` to install the new dependency,
 you can run using `composer run` and choose either `sniff`, `format` or `format-verbose`.
 
-## VSCode Setup
+## VSCode Plugin Setup
+
+### Clone main repo
+
+`git clone https://github.com/PDGA/coding-standards.git`
+
+`cd coding-standards && composer install`
 
 ### Plugin
 
