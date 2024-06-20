@@ -12,4 +12,4 @@ echo $path
 shift
 restofcommands=$@
 
-docker compose run --rm -u $(id -u):$(id -g) -v "$path:/var/test" php ./vendor/bin/$command -v --standard=./src/ruleset.xml ../test $restofcommands
+docker compose run --rm -u $(id -u):$(id -g) -v "$path:/var/test" codesniffer ./vendor/bin/$command -v --standard=./src/ruleset.xml ../test $restofcommands

@@ -19,9 +19,9 @@
         }
     ],
     "scripts": {
-        "sniff": "bin/codesniffer phpcs",
-        "format": "bin/codesniffer phpcbf",
-        "format-verbose": "bin/codesniffer phpcbf -v"
+        "sniff": "bin/internal phpcs",
+        "format": "bin/internal phpcbf",
+        "format-verbose": "bin/internal phpcbf -v"
     },
     "minimum-stability": "stable",
     "require": {},
