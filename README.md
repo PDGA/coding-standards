@@ -36,11 +36,12 @@ The `src/ruleset.xml` file in this directory is the rule set for PDGA coding sta
 **Note: If any section already exists, add the new information under/inside of it.**
 
 * Run `composer install` from that repository to install.
-* Copy `example/script` to that repository and modify the script to use the proper container.
+* Copy `example/script` to `bin/codesniffer` in that repository and modify the script to use the proper container.
 
 ## Using in a repository
 
 Once you have the repository's `composer.json` file set up and have run `composer install` to install the new dependency,
+you can run using `composer run` and choose either `sniff`, `format` or `format-verbose`.
 
 ## VSCode Setup
 
