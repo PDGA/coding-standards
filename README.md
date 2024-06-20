@@ -1,12 +1,49 @@
 The `src/ruleset.xml` file in this directory is the rule set for PDGA coding standards.
 
-## General Setup
+## Adding to a repository
+
+* Edit composer.json, add these sections:
+
+```json
+  "scripts": {
+    "sniff": "bin/codesniffer phpcs",
+    "format": "bin/codesniffer phpcbf",
+    "format-verbose": "bin/codesniffer phpcbf -v"
+  },
+```
+
+```json
+    "repositories":[
+        {
+            "type": "vcs",
+            "url": "https://github.com/PDGA/coding-standards.git"
+        }
+    ],
+```
+
+```json
+  "require-dev": {
+    "pdga/coding-standards": "^1.0"
+  }
+```
+
+**Note: If any section already exists, add the new information under/inside of it.**
+
+* Run `composer install` from that repository to install.
+* Copy `example/script` to `bin/codesniffer` in that repository and modify the script to use the proper container.
+
+## Using in a repository
+
+Once you have the repository's `composer.json` file set up and have run `composer install` to install the new dependency,
+you can run using `composer run` and choose either `sniff`, `format` or `format-verbose`.
+
+## VSCode Plugin Setup
+
+### Clone main repo
 
 `git clone https://github.com/PDGA/coding-standards.git`
 
 `cd coding-standards && composer install`
-
-## VSCode Setup
 
 ### Plugin
 
