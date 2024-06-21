@@ -2,7 +2,7 @@ The `src/ruleset.xml` file in this directory is the rule set for PDGA coding sta
 
 ## Adding to a repository
 
-* Edit composer.json, add these sections:
+- Edit composer.json, add these sections:
 
 ```json
   "scripts": {
@@ -29,8 +29,8 @@ The `src/ruleset.xml` file in this directory is the rule set for PDGA coding sta
 
 **Note: If any section already exists, add the new information under/inside of it.**
 
-* Run `composer install` from that repository to install.
-* Copy `example/script` to `bin/codesniffer` in that repository and modify the script to use the proper container.
+- Run `composer install` from that repository to install.
+- Copy `example/script` to `bin/codesniffer` in that repository and modify the script to use the proper container.
 
 ## Using in a repository
 
@@ -43,7 +43,7 @@ you can run using `composer run` and choose either `sniff`, `format` or `format-
 
 `git clone https://github.com/PDGA/coding-standards.git`
 
-`cd coding-standards && composer install`
+`cd coding-standards && ./bin/composer install`
 
 ### Plugin
 
@@ -51,9 +51,9 @@ Set up VSCode with this plugin: https://marketplace.visualstudio.com/items?itemN
 
 Add the JSON configuration below to your `settings.json` file, usually in:
 
-* Windows `%APPDATA%\Code\User\settings.json`
-* macOS `$HOME/Library/Application\ Support/Code/User/settings.json`
-* Linux `$HOME/.config/Code/User/settings.json`
+- Windows `%APPDATA%\Code\User\settings.json`
+- macOS `$HOME/Library/Application\ Support/Code/User/settings.json`
+- Linux `$HOME/.config/Code/User/settings.json`
 
 **Note**: you will have to change the path to where you cloned `coding-standards`.
 
@@ -106,8 +106,10 @@ PhpStorm has native support for configuring PHP_CodeSniffer as a Quality Tool pe
 Follow the setup instructions here: [PhpStorm Setup](https://www.jetbrains.com/help/phpstorm/using-php-code-sniffer.html#installing-configuring-code-sniffer)
 
 ### Configuring for a project that runs on a Docker image
-The setup instructions will use a local PHP interpreter and local file paths for the CodeSniffer configuration. 
-When setting this up for a project that runs within a Docker image, there are some things to be aware of. 
+
+The setup instructions will use a local PHP interpreter and local file paths for the CodeSniffer configuration.
+When setting this up for a project that runs within a Docker image, there are some things to be aware of.
 Since `Composer` commands should run on the image instead of locally, you will need everything configured from the perspective of the image.
+
 - Use the interpreter from the Docker image. (eg Use the `pdga-api-php` interpreter instead of `System PHP`)
 - Use the file paths from the Docker image (eg Use soemthing like `/var/www/html/vendor/squizlabs/php_codesniffer/bin/phpcs` for the PHP_CodeSniffer path).
