@@ -1,13 +1,14 @@
 <?xml version="1.0"?>
-<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="PSR12" xsi:noNamespaceSchemaLocation="../../../phpcs.xsd">
-    <description>The PSR-12 coding standard.</description>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="PDGA" xsi:noNamespaceSchemaLocation="../../../phpcs.xsd">
+    <description>PDGA custom coding standard.</description>
     <arg name="tab-width" value="4"/>
 
     <!-- 2. General -->
 
     <!-- 2.1 Basic Coding Standard -->
 
-    <!-- Code MUST follow all rules outlined in PSR-1. -->
+    <!-- Code MUST follow all rules outlined in these. -->
+    <rule ref="./PDGA"/>
     <rule ref="PSR1"/>
 
     <!-- The term 'StudlyCaps' in PSR-1 MUST be interpreted as PascalCase where the first letter of each word is capitalized including the very first letter. -->
@@ -356,4 +357,7 @@
         <!-- <exclude-pattern>Model\.php</exclude-pattern> -->
         <!-- <severity>0</severity> -->
     </rule>
+
+    <!-- Custom PDGA rules -->
+
 </ruleset>

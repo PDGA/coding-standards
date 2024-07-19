@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<ruleset name="PDGA_Sniffs">
+    <description>PDGA custom coding sniffs.</description>
+    <arg name="tab-width" value="4"/>
+</ruleset>
