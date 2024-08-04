@@ -7,12 +7,10 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class MatchingNamesSniff implements Sniff
 {
-    private $called = 1;
     public function register()
     {
         return [
             T_ATTRIBUTE,
-            #T_ATTRIBUTE_END,
         ];
     }
 
@@ -37,11 +35,13 @@ class MatchingNamesSniff implements Sniff
         }
 
         // Given #[Route(new IntPipe(), 'fooBar')] int $fooBar
-        // This is                       ^^^^^^
+        // This is `fooBar`              ^^^^^^
         $tokenInfo = $tokens[$stackPtr];
-        $nameOne = preg_replace('#[^A-Za-z0-9_]#', '', $tokenInfo['content']);
+        $constructorArgName = preg_replace('#[^A-Za-z0-9_]#', '', $tokenInfo['content']);
 
         // Get the name of the variable argument
+        // Given #[Route(new IntPipe(), 'fooBar')] int $fooBar
+        // This is                                      ^^^^^^
         $stackPtr = $phpcsFile->findNext(T_VARIABLE, $stackPtr);
 
         if (!$stackPtr) {
@@ -49,20 +49,20 @@ class MatchingNamesSniff implements Sniff
         }
 
         // Given #[Route(new IntPipe(), 'fooBar')] int $fooBar
-        // This is                                      ^^^^^^
+        // This is `fooBar`                             ^^^^^^
         $tokenInfo = $tokens[$stackPtr];
-        $nameTwo = preg_replace('#[^A-Za-z0-9_]#', '', $tokenInfo['content']);
+        $variableName = preg_replace('#[^A-Za-z0-9_]#', '', $tokenInfo['content']);
 
-        if ($nameOne === $nameTwo) {
+        if ($constructorArgName === $variableName) {
             // No problem, they match like
             // we require for this rule.
-            // eg fooBar === fooBar
+            // eg `fooBar` === $fooBar
             return;
         }
 
         $data = [
-            $nameOne,
-            $nameTwo
+            $constructorArgName,
+            $variableName
         ];
 
         $error = "In a PDGA Route attribute, the constructor argument (%s) that represents the variable name (%s) should match.";
