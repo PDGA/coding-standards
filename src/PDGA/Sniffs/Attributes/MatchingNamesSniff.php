@@ -60,12 +60,10 @@ class MatchingNamesSniff implements Sniff
             return;
         }
 
-        $data = [
-            $constructorArgName,
-            $variableName
-        ];
-
-        $error = "In a PDGA Route attribute, the constructor argument (%s) that represents the variable name (%s) should match.";
-        $phpcsFile->addError($error, $stackPtr, 'Route Attribute', $data);
+        $phpcsFile->addError(
+            "In a PDGA Route attribute, the constructor argument ({$constructorArgName}) that represents the variable name ({$variableName}) should match.",
+            $stackPtr,
+            'Route Attribute'
+        );
     }
 }
