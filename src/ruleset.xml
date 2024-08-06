@@ -9,6 +9,7 @@
 
     <!-- Code MUST follow all rules outlined in these. -->
     <rule ref="./PDGA"/>
+    <rule ref="PSR12"/>
     <rule ref="PSR1"/>
 
     <!-- The term 'StudlyCaps' in PSR-1 MUST be interpreted as PascalCase where the first letter of each word is capitalized including the very first letter. -->
