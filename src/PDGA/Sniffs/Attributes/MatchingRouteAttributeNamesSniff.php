@@ -5,8 +5,10 @@ namespace PDGA\CodingStandards\Sniffs\Attributes;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 
-class MatchingNamesSniff implements Sniff
+class MatchingRouteAttributeNamesSniff implements Sniff
 {
+    protected const TYPE = 'Route';
+
     public function register()
     {
         return [
@@ -23,7 +25,7 @@ class MatchingNamesSniff implements Sniff
 
         // Only for Route Attributes,
         // so return if it not one.
-        if ($tokenInfo['content'] !== 'Route') {
+        if ($tokenInfo['content'] !== self::TYPE) {
             return;
         }
 
@@ -36,8 +38,7 @@ class MatchingNamesSniff implements Sniff
 
         // Given #[Route(new IntPipe(), 'fooBar')] int $fooBar
         // This is `fooBar`              ^^^^^^
-        $tokenInfo = $tokens[$stackPtr];
-        $constructorArgName = preg_replace('#[^A-Za-z0-9_]#', '', $tokenInfo['content']);
+        $constructorArgName = $this->getContent($tokens, $stackPtr);
 
         // Get the name of the variable argument
         // Given #[Route(new IntPipe(), 'fooBar')] int $fooBar
@@ -50,8 +51,7 @@ class MatchingNamesSniff implements Sniff
 
         // Given #[Route(new IntPipe(), 'fooBar')] int $fooBar
         // This is `fooBar`                             ^^^^^^
-        $tokenInfo = $tokens[$stackPtr];
-        $variableName = preg_replace('#[^A-Za-z0-9_]#', '', $tokenInfo['content']);
+        $variableName = $this->getContent($tokens, $stackPtr);
 
         if ($constructorArgName === $variableName) {
             // No problem, they match like
@@ -65,5 +65,10 @@ class MatchingNamesSniff implements Sniff
             $stackPtr,
             'Route Attribute'
         );
+    }
+
+    private function getContent($tokens, $stackPtr)
+    {
+        return preg_replace('#[^A-Za-z0-9_]#', '', $tokens[$stackPtr]['content']);
     }
 }
