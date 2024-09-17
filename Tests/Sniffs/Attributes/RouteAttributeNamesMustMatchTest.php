@@ -38,7 +38,7 @@ class RouteAttributeNamesMustMatchTest extends TestCase
         );
     }
 
-    public function testThatAttributeNamesThatMatchAreCool()
+    public function testThatAttributeNamesThatMatchAreAllowed()
     {
         $result = $this->runPhpCs->process('Tests/Sniffs/Attributes/Targets/attributes-route-matching.php');
 
