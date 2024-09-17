@@ -20,7 +20,6 @@ class RouteAttributeNamesMustMatchTest extends TestCase
         parent::setUp();
     }
 
-    // If a
     public function testThatAttributeNamesDoNotMatchIsCaught()
     {
         $result = $this->runPhpCs->process('Tests/Sniffs/Attributes/Targets/attributes-route-non-matching.php');
