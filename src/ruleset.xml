@@ -359,5 +359,5 @@
     </rule>
 
     <!-- Custom PDGA rules -->
-
+    <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes"/>
 </ruleset>
