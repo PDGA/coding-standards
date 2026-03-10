@@ -359,5 +359,9 @@
     </rule>
 
     <!-- Custom PDGA rules -->
-
+    <rule ref="Generic.Metrics.CyclomaticComplexity">
+        <properties>
+            <property name="complexity" value="9"/>
+        </properties>
+    </rule>
 </ruleset>
