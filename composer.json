@@ -1,7 +1,7 @@
 {
     "name": "pdga/coding-standards",
     "description": "Coding standard rulesets to be used to assist in styling code at the PDGA.",
-    "type": "library",
+    "type": "phpcodesniffer-standard",
     "license": "MIT",
     "autoload": {
         "psr-4": {
