@@ -359,7 +359,6 @@
     </rule>
 
     <!-- Custom PDGA rules -->
-    <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes"/>
     <rule ref="Generic.Metrics.CyclomaticComplexity">
         <properties>
             <property name="complexity" value="10"/>
